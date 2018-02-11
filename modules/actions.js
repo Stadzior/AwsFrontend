@@ -91,18 +91,18 @@ module.exports = {
     invert (request, callback) {
         var utils = require("./utils");
         var sender = require("./sender");
-        sender.sendMessenger(utils.INVERT, request.body['photos']);
+        sender.sendMessenge(utils.INVERT, request.body['photos']);
     },
 
     greyscale (request, callback) {
         var utils = require("./utils");
         var sender = require("./sender");
-        sender.sendMessenger(utils.GREYSCALE, request.body['photos']);
+        sender.sendMessenge(utils.GREYSCALE, request.body['photos']);
     },
     
     sepia (request, callback) {
         var utils = require("./utils");
         var sender = require("./sender");
-        sender.sendMessenger(utils.SEPIA, request.body['photos']);
+        sender.sendMessenge(utils.SEPIA, request.body['photos']);
     }
 }
