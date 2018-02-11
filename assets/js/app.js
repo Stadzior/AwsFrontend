@@ -60,17 +60,14 @@ function convertToJSON() {
 }
 
 function deleteObject() {
-
     $.ajax({
         type: "POST",
         url: "delete",
         data: photosToJSON()
     });
-
 }
 
 function upload() {
-
     var input = document.getElementById('files');
     var file = input.files[0];
     var formData = new FormData();
@@ -84,6 +81,4 @@ function upload() {
         processData: false,
         contentType: false
     });
-    
-
 }
