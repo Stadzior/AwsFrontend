@@ -7,6 +7,8 @@ module.exports = {
     INVERT: "1",
     GREYSCALE: "2",
     SEPIA: "3",
+
+    UPLOAD_DIR: "/uploads",
   
     generateNewGuid: function () {
         var d = new Date().getTime();
