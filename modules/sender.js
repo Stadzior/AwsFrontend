@@ -6,7 +6,7 @@ module.exports = {
             var params = {
                 DelaySeconds: 10,
                 MessageAttributes: {
-                    "MessageType": {
+                    "Type": {
                         DataType: "Number",
                         StringValue: type
                     }
