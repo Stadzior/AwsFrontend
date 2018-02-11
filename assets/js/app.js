@@ -19,7 +19,7 @@ ko.applyBindings(viewModel);
 
 $.ajax({
     type: "POST",
-    url: "get_photos"
+    url: "get_pictures"
 }).done(function (data) {
     var tempDownloadedPictures = JSON.parse(data);
     tempDownloadedPictures.forEach(function (value) {
@@ -53,9 +53,9 @@ function addPicture(name) {
     viewModel.choosenPictures.valueHasMutated();
 }
 
-function convertToJSON() {
+function picturesToJSON(pics) {
     var obj = new Object();
-    obj.photos = clickedPictures;
+    obj.photos = pics;
     return obj;
 }
 
@@ -63,7 +63,7 @@ function deleteObject() {
     $.ajax({
         type: "POST",
         url: "delete",
-        data: photosToJSON()
+        data: picturesToJSON(clickedPictures)
     });
 }
 
