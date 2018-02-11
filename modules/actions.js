@@ -6,21 +6,18 @@ module.exports = {
         var utils = require("./utils");
         var form = new formidable.IncomingForm();
         var fileName;
-        
         form.multiples = true;
-        form.uploadDir = path.join(__dirname, Const.UPLOAD_DIR);
+        form.uploadDir = path.join(__dirname, utils.UPLOAD_DIR);
         form.on('file', function (field, file) {
             var fs = require('fs');
             fileName = utils.generateNewGuid();
             fs.rename(file.path, path.join(form.uploadDir, fileName));
         });
-    
         form.on('end', function () {
             var jimp = require("jimp");
             jimp.read(path.join(__dirname, utils.UPLOAD_DIR, fileName), function (err, image) {
                 if (err) {
                     logger.log(err);
-                    throw err;
                 }
                 image.getBuffer(image.getMIME(), (err, buffer) => {  
                     var aws = require('aws-sdk');                
@@ -30,13 +27,12 @@ module.exports = {
                     storage.putObject(data, function (err, data) {
                         if (err)
                             logger.log(err);
-                        fs.unlink(__dirname + Const.UPLOAD_DIR + "/" + fileName);
+                        fs.unlink(__dirname + utils.UPLOAD_DIR + "/" + fileName);
                     });
     
                 });
             });
         });
-        
         form.parse(request);   
     },
 
@@ -53,7 +49,6 @@ module.exports = {
                 if (err)
                     logger.log(err);
             });
-        });
-    
+        });    
     }
 }
