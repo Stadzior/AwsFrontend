@@ -5,11 +5,11 @@ module.exports = {
         var formidable = require('formidable');
         var utils = require("./utils");
         var form = new formidable.IncomingForm();
+        var fs = require('fs');
         var fileName;
         form.multiples = true;
         form.uploadDir = path.join(__dirname, utils.UPLOAD_DIR);
         form.on('file', function (field, file) {
-            var fs = require('fs');
             fileName = utils.generateNewGuid();
             fs.rename(file.path, path.join(form.uploadDir, fileName));
         });
