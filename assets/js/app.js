@@ -2,12 +2,10 @@ var downloadedPictures = [];
 var clickedPictures = [];
 
 class Picture {
-
     constructor(name, url) {
         this.name = name;
         this.url = url;
     }
-
 }
 
 var viewModel = {
