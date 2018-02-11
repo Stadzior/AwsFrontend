@@ -82,3 +82,30 @@ function upload() {
         contentType: false
     });
 }
+
+function invertColors() {
+
+    $.ajax({
+        type: "POST",
+        url: "invert",
+        data: picturesToJSON(clickedPictures)
+    });
+}
+
+function greyscale() {
+
+    $.ajax({
+        type: "POST",
+        url: "greyscale",
+        data: picturesToJSON(clickedPictures)
+    });
+}
+
+function sepia() {
+
+    $.ajax({
+        type: "POST",
+        url: "sepia",
+        data: picturesToJSON(clickedPictures)
+    });
+}

@@ -86,5 +86,12 @@ module.exports = {
                 });
             }
         });
+    },
+
+    invert (request, callback) {
+    },
+    greyscale (request, callback) {
+    },
+    sepia (request, callback) {
     }
 }
