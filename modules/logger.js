@@ -16,7 +16,7 @@ module.exports = {
                     S: String(Date.now())
                 }, 
                 "Message": {
-                    S: "Backend; " + message
+                    S: "Frontend; " + message
                 }
             },
             ReturnConsumedCapacity: "TOTAL",
